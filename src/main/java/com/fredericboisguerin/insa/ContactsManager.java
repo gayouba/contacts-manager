@@ -34,5 +34,6 @@ public class ContactsManager {
             }
             i++;
         }
+        if (found = false)System.out.println("Contact inexistant");
     }
 }
