@@ -5,14 +5,14 @@ import java.util.*;
 public class Interface {
 
     static Scanner sc = new Scanner(System.in);
-    static String cmd = sc.toString();
+    static String cmd;
     static ContactsManager contactsManager = new ContactsManager();
 
     public static void main(String [] args){
         while (true) {
             System.out.println(">");
-
-            if (cmd == "add") {
+            cmd=sc.next();
+            if (cmd.equals("add")) {
                 System.out.println("Entrez le contact sous le format suivant : nom email telephone");
                 String name = sc.next();
                 String email = sc.next();
@@ -26,15 +26,16 @@ public class Interface {
                     System.out.println("Email incorrect");
                 }
 
-            } else if (cmd == "print") {
+            } else if (cmd.equals("print")) {
                 contactsManager.printAllContacts();
-            } else if (cmd == "search") {
+            } else if (cmd.equals("search")) {
+                System.out.println("Entrez le nom du contact recherche");
                 String name= sc.next();
                 contactsManager.searchContactByName(name);
-            } else if (cmd == "quit") { break;
+            } else if (cmd.equals("quit")) { break;
 
             } else {System.out.println("Cmd not found");}
-            cmd=sc.next();
+
         }
     }
 }
